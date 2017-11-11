@@ -89,7 +89,7 @@ namespace SystemExt.CollectionsExt.GenericExt
             }
         }
 
-        public async Task<Slot> TakeSlot()
+        public Task<Slot> TakeSlot()
         {
             var awaiter = new TaskCompletionSource<Slot>();
             lock (this._takeSlotQueue)
@@ -109,7 +109,7 @@ namespace SystemExt.CollectionsExt.GenericExt
                 }
             }
 
-            return await awaiter.Task;
+            return awaiter.Task;
         }
     }
 }
